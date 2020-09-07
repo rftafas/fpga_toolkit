@@ -1,0 +1,12 @@
+[submodule "dependencies/stdcores"]
+	path = dependencies/stdcores
+	url = git@github.com:rftafas/stdcores.git
+[submodule "dependencies/stdblocks"]
+	path = dependencies/stdblocks
+	url = git@github.com:rftafas/stdblocks.git
+[submodule "dependencies/stdexpert"]
+	path = dependencies/stdexpert
+	url = git@github.com:rftafas/stdexpert.git
+[submodule "dependencies/hdltools"]
+	path = dependencies/hdltools
+	url = git@github.com:rftafas/hdltools.git
