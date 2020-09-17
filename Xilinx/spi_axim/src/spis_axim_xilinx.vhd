@@ -108,7 +108,7 @@ wrapper_u : spi_axi_top
     ADDR_BYTE_NUM => ADDR_BYTE_NUM,
     DATA_BYTE_NUM => DATA_BYTE_NUM,
     serial_num_rw => serial_num_rw,
-    clock_mode    => string_conv(clock_mode)
+    clock_mode    => string_conv(native_clock_mode)
   )
   port map (
     --general
