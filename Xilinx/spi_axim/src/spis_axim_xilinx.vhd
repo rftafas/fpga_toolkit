@@ -28,14 +28,14 @@ library stdcores;
 
 entity spis_axim_xilinx is
   generic (
-    CPOL          : std_logic   := '0';
-    CPHA          : std_logic   := '0';
-    ID_WIDTH      : integer     := 1;
-    ID_VALUE      : integer     := 0;
-    ADDR_BYTE_NUM : integer     := 4;
-    DATA_BYTE_NUM : integer     := 4;
-    serial_num_rw : boolean     := true;
-    clock_mode    : string
+    CPOL          : std_logic_vector(0 to 0)  := "0";
+    CPHA          : std_logic_vector(0 to 0)  := "0";
+    ID_WIDTH      : integer    := 1;
+    ID_VALUE      : integer    := 0;
+    ADDR_BYTE_NUM : integer    := 4;
+    DATA_BYTE_NUM : integer    := 4;
+    serial_num_rw : boolean      := true;
+    native_clock_mode : boolean  := true
     );
   port (
     --general
@@ -88,21 +88,21 @@ end spis_axim_xilinx;
 
 architecture Behavioral of spis_axim_xilinx is
 
-	function string_conv (input : string ) return spi_clock_t is
+	function string_conv ( input : boolean ) return spi_clock_t is
 	begin
-		if string_match(input,"native") then
+		if input then
 			return native;
 		else
 			return oversampled;
 		end if;
-	end string_conv;
+	end string_conv;	
 
 begin
 
 wrapper_u : spi_axi_top
   generic map (
-    CPOL          => CPOL,
-    CPHA          => CPHA,
+    CPOL          => CPOL(0),
+    CPHA          => CPHA(0),
     ID_WIDTH      => ID_WIDTH,
     ID_VALUE      => ID_VALUE,
     ADDR_BYTE_NUM => ADDR_BYTE_NUM,
